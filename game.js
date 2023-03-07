@@ -1,15 +1,4 @@
-// Let's start
-
-// Firs Assignment
-// Write a JavaScript program to find the diagonal of a square where the length of each
-// side is 9.
-function result(side=9, division=2){
-    let diagonal = side*4/division; 
-    window.alert(diagonal);    
-}
-
-result();
-
+// Let's start creating the random choices for the computer
 
 function computerPlay() {
     const options = ["rock", "paper", "scissors"];
@@ -18,6 +7,8 @@ function computerPlay() {
     return options[index];
 };
 
+
+// Function for the players, need to add parameters
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
 
@@ -51,6 +42,7 @@ function game() {
         } else if (result.includes("lose")) {
             computerScore++;
         }
+        window.alert(result);
         console.log(result);
     }
 
@@ -65,8 +57,23 @@ function game() {
     }
 
     // Display results
-    console.log(`Final scores:\nYou: ${playerScore}\nComputer: ${computerScore}\n${winner}`)
+    window.alert(`Final scores:\nYou: ${playerScore}\nComputer: ${computerScore}\n${winner}`)
+    return menu(`Would you like to play again?\nType y is Yes\nType n if No`);
+}
 
+let menu = (text) => {
+    let input = prompt(text);
+    switch (input) {
+        case "y":
+            game();
+            break;
+        case "n":
+            alert("Thanks for playing!");
+            break;
+        default:
+            menu(text);
+            break;
+    }
 }
 
 game();
